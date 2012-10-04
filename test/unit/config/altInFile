@@ -1,8 +1,0 @@
-
-&testModule
-   iVariable = 1234567890
-   rVariable = 123456.
-   dVariable = 12345678.12345678
-   lVariable = .true.
-   cVariable = 'correctValue'
-/
