@@ -1,0 +1,104 @@
+Ext.define('eSalsa.view.experiments.List', {
+    extend : 'Ext.grid.Panel',
+    alias : 'widget.experimentslist',
+    store : 'Experiments',
+    title : 'Experiments',
+    allowDeselect : true,
+    initComponent : function() {
+
+        this.columns = [ {
+            text : 'ID',
+            dataIndex : 'id',
+            editor: {
+              xtype: 'textfield',
+              allowBlank: false
+            },
+            flex : 1
+        }, {
+            text : 'Comment',
+            dataIndex : 'comment',
+            hidden : true,
+            editor : {
+                xtype : 'textarea'
+            }
+        }, {
+            text : 'Worker',
+            dataIndex : 'worker',
+            editor : {
+                xtype : 'combo',
+                store : 'Workers',
+                queryMode : 'local',
+                displayField : 'id',
+                valueField : 'id',
+                forceSelection: true
+            }
+        }, {
+            text : 'Configuration',
+            dataIndex : 'configuration',
+            editor : {
+                xtype : 'combo',
+                store : 'Configurations',
+                queryMode : 'local',
+                displayField : 'id',
+                valueField : 'id',
+                forceSelection: true
+            }
+        }, {
+            text : 'Input',
+            dataIndex : 'input',
+            editor : {
+                xtype : 'combo',
+                store : 'Inputs',
+                queryMode : 'local',
+                displayField : 'id',
+                valueField : 'id',
+                forceSelection: true
+            }
+        }, {
+            xtype : 'actioncolumn',
+            width : 50,
+            items : [ {
+                getClass : function() {
+                    return 'icon-start';
+                },
+                tooltip : 'Start',
+                handler : function(grid, rowIndex, colIndex) {
+                    var rec = grid.getStore().getAt(rowIndex);
+                }
+            }, {
+                getClass : function() {
+                    return 'icon-del';
+                },
+                tooltip : 'Delete',
+                handler : function(grid, rowIndex, colIndex) {
+                    var rec = grid.getStore().getAt(rowIndex);
+                    grid.getStore().remove(rec);
+                }
+            } ]
+        } ];
+
+        var editing = Ext.create('Ext.grid.plugin.RowEditing', {
+            clicksToMoveEditor : 1,
+            autoCancel : false
+        });
+
+        Ext.apply(this, {
+            plugins : [ editing ]
+        });
+
+        this.tbar = [ {
+            text : 'Add experiment',
+            iconCls : 'icon-add',
+            handler: this.onAddClick,
+            scope: this
+        } ];
+
+        this.callParent(arguments);
+
+    },
+    onAddClick: function() {
+        var rec = Ext.create('eSalsa.model.Experiment');
+        this.getStore().insert(0, rec);
+        this.plugins[0].startEdit(rec, 0);
+    }
+});
