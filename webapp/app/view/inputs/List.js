@@ -12,7 +12,7 @@ Ext.define('eSalsa.view.inputs.List', {
         this.tbar = [ {
             text : 'Add Input',
             iconCls : 'icon-add',
-            action : 'add_input'
+            action : 'add-input'
           } ];
 
         this.callParent(arguments);

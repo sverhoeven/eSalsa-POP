@@ -55,12 +55,15 @@ Ext.define('eSalsa.view.inputs.Files', {
         this.initField();
     },
     setValue : function(value) {
-        this.getStore().loadRawData(value);
+    	// value must be converted to fit in store
+    	// ['file1', 'file2'] -> [['file1'], ['file2']]
+    	var nest = value.map(function(r) { return [r];});
+        this.getStore().loadRawData(nest);
     },
     getValue : function() {
         var files = [];
         this.getStore().each(function(r) {
-            files.append(r.data.file);
+            files.push(r.data.file);
         });
         return files;
     },

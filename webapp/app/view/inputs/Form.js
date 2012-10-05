@@ -25,11 +25,13 @@ Ext.define('eSalsa.view.inputs.Form', {
         name : 'files'
     } ],
     buttons : [ {
-        text : 'Clear',
+        text : 'Clear'
     }, {
         text : 'Save',
+        action: 'save-input'
     }, {
         text : 'Delete',
+        action: 'del-input'
     } ],
     reset : function() {
         this.getForm().reset();
