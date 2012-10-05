@@ -4,11 +4,11 @@ Ext.define('eSalsa.store.Workers', {
     autoLoad : true,
     proxy : {
         type : 'rest',
-        url : "http://145.100.61.17:9003/workers",
+        url : "/resource/workers",
         reader : {
             type : 'json',
-            root : 'workers.rows',
-            totalProperty : 'workers.total'
+            root : 'rows',
+            totalProperty : 'total'
         }
     }
 });
