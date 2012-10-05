@@ -59,20 +59,13 @@ Ext.define('eSalsa.view.experiments.List', {
             width : 50,
             items : [ {
                 getClass : function() {
-                    return 'icon-start';
-                },
-                tooltip : 'Start',
-                handler : function(grid, rowIndex, colIndex) {
-                    var rec = grid.getStore().getAt(rowIndex);
-                }
-            }, {
-                getClass : function() {
                     return 'icon-del';
                 },
                 tooltip : 'Delete',
-                handler : function(grid, rowIndex, colIndex) {
-                    var rec = grid.getStore().getAt(rowIndex);
-                    grid.getStore().remove(rec);
+                scope: this,
+                handler: function(grid, rowIndex, colIndex) {
+            		var rec = grid.getStore().getAt(rowIndex);
+            		this.fireEvent('deleteExperiment', rec, rowIndex );
                 }
             } ]
         } ];
@@ -92,6 +85,8 @@ Ext.define('eSalsa.view.experiments.List', {
             handler: this.onAddClick,
             scope: this
         } ];
+
+        this.addEvents('deleteExperiment');
 
         this.callParent(arguments);
 
