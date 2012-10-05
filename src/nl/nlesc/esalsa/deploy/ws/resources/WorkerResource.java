@@ -1,4 +1,4 @@
-package nl.nlesc.esalsa.deploy.ws;
+package nl.nlesc.esalsa.deploy.ws.resources;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -9,12 +9,15 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import nl.nlesc.esalsa.deploy.ws.entities.Worker;
+import nl.nlesc.esalsa.deploy.ws.entities.Workers;
+
 @Path("/workers")
 @Produces(MediaType.APPLICATION_JSON)
-public class WorkerService {
+public class WorkerResource {
     private Workers workers;
 
-    public WorkerService() {
+    public WorkerResource() {
         workers = new Workers();
 
         Worker worker = new Worker();

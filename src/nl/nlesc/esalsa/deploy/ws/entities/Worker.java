@@ -1,4 +1,4 @@
-package nl.nlesc.esalsa.deploy.ws;
+package nl.nlesc.esalsa.deploy.ws.entities;
 
 import java.util.HashMap;
 
