@@ -24,7 +24,7 @@ Requirements
 
 ### ExtJS
 
-Download ExtJS on http://www.sencha.com and extract in webinf/ directory.
+Download ExtJS on http://www.sencha.com and extract in webapp/ directory.
 
 Usage
 -----
