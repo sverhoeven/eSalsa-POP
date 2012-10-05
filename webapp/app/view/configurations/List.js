@@ -14,7 +14,7 @@ Ext.define('eSalsa.view.configurations.List', {
         this.tbar = [ {
             text : 'Add Configuration',
             iconCls : 'icon-add',
-            action : 'add_conf'
+            action : 'add-conf'
         } ];
 
         this.callParent(arguments);

@@ -28,8 +28,10 @@ Ext.define('eSalsa.view.configurations.Form', {
         text: 'Clear',
     }, {
         text: 'Save',
+        action: 'save-conf'
     }, {
         text: 'Delete',
+        action: 'del-conf'
     }],
     reset: function() {
         this.getForm().reset();
