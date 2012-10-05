@@ -14,7 +14,7 @@ Ext.define('eSalsa.view.workers.List', {
 		this.tbar = [ {
 			text : 'Add Worker',
 			iconCls : 'icon-add',
-			action : 'add_worker'
+			action : 'add-worker'
 		} ];
 
 		this.callParent(arguments);

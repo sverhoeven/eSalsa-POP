@@ -15,6 +15,7 @@ Ext.define('eSalsa.view.workers.Form', {
     items: [{
         fieldLabel: 'ID',
         name: 'id',
+        readOnly: true,
         allowBlank: false
     }, {
         fieldLabel: 'Comment',
@@ -47,8 +48,10 @@ Ext.define('eSalsa.view.workers.Form', {
         text: 'Clear',
     }, {
         text: 'Save',
+        action: 'save-worker'
     }, {
         text: 'Delete',
+        action: 'del-worker'
     }],
     reset: function() {
         this.getForm().reset();
