@@ -1,9 +1,14 @@
+/**
+ * List of files.
+ * Can be used a form field.
+ */
 Ext.define('eSalsa.view.inputs.Files', {
     extend : 'Ext.grid.Panel',
     alias : 'widget.inputfileslist',
     title : 'Files',
     store : 'Files',
     mixins : [ 'Ext.form.field.Field' ],
+    requires : [ 'Ext.Action', 'Ext.grid.plugin.CellEditing' ],
     allowDeselect : true,
     initComponent : function() {
         var me = this;
@@ -26,7 +31,7 @@ Ext.define('eSalsa.view.inputs.Files', {
         this.columns = [ {
             text : 'File',
             dataIndex : 'file',
-            flex: 1,
+            flex : 1,
             editor : {
                 allowBlank : false
             }
@@ -55,9 +60,11 @@ Ext.define('eSalsa.view.inputs.Files', {
         this.initField();
     },
     setValue : function(value) {
-    	// value must be converted to fit in store
-    	// ['file1', 'file2'] -> [['file1'], ['file2']]
-    	var nest = value.map(function(r) { return [r];});
+        // value must be converted to fit in store
+        // ['file1', 'file2'] -> [['file1'], ['file2']]
+        var nest = value.map(function(r) {
+            return [ r ];
+        });
         this.getStore().loadRawData(nest);
     },
     getValue : function() {

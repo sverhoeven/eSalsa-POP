@@ -1,3 +1,7 @@
+/**
+ * Form to edit an input.
+ * Uses a grid to configure the files for an input.
+ */
 Ext.define('eSalsa.view.inputs.Form', {
     extend : 'Ext.form.Panel',
     alias : 'widget.inputsform',
@@ -32,8 +36,5 @@ Ext.define('eSalsa.view.inputs.Form', {
     }, {
         text : 'Delete',
         action: 'del-input'
-    } ],
-    reset : function() {
-        this.getForm().reset();
-    }
+    } ]
 });

@@ -1,3 +1,6 @@
+/**
+ * List of configurations
+ */
 Ext.define('eSalsa.view.configurations.List', {
     extend : 'Ext.grid.Panel',
     alias : 'widget.configurationslist',

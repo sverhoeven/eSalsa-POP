@@ -1,17 +1,21 @@
+/**
+ * Editable list of experiments.
+ */
 Ext.define('eSalsa.view.experiments.List', {
     extend : 'Ext.grid.Panel',
     alias : 'widget.experimentslist',
     store : 'Experiments',
     title : 'Experiments',
+    uses : [ 'Ext.grid.column.Action', 'Ext.grid.plugin.RowEditing' ],
     allowDeselect : true,
     initComponent : function() {
 
         this.columns = [ {
             text : 'ID',
             dataIndex : 'id',
-            editor: {
-              xtype: 'textfield',
-              allowBlank: false
+            editor : {
+                xtype : 'textfield',
+                allowBlank : false
             },
             flex : 1
         }, {
@@ -30,7 +34,7 @@ Ext.define('eSalsa.view.experiments.List', {
                 queryMode : 'local',
                 displayField : 'id',
                 valueField : 'id',
-                forceSelection: true
+                forceSelection : true
             }
         }, {
             text : 'Configuration',
@@ -41,7 +45,7 @@ Ext.define('eSalsa.view.experiments.List', {
                 queryMode : 'local',
                 displayField : 'id',
                 valueField : 'id',
-                forceSelection: true
+                forceSelection : true
             }
         }, {
             text : 'Input',
@@ -52,7 +56,7 @@ Ext.define('eSalsa.view.experiments.List', {
                 queryMode : 'local',
                 displayField : 'id',
                 valueField : 'id',
-                forceSelection: true
+                forceSelection : true
             }
         }, {
             xtype : 'actioncolumn',
@@ -62,10 +66,10 @@ Ext.define('eSalsa.view.experiments.List', {
                     return 'icon-del';
                 },
                 tooltip : 'Delete',
-                scope: this,
-                handler: function(grid, rowIndex, colIndex) {
-            		var rec = grid.getStore().getAt(rowIndex);
-            		this.fireEvent('deleteExperiment', rec, rowIndex );
+                scope : this,
+                handler : function(grid, rowIndex, colIndex) {
+                    var rec = grid.getStore().getAt(rowIndex);
+                    this.fireEvent('deleteExperiment', rec, rowIndex);
                 }
             } ]
         } ];
@@ -82,16 +86,22 @@ Ext.define('eSalsa.view.experiments.List', {
         this.tbar = [ {
             text : 'Add experiment',
             iconCls : 'icon-add',
-            handler: this.onAddClick,
-            scope: this
+            handler : this.onAddClick,
+            scope : this
         } ];
 
+        /**
+         * @event deleteExperiment
+         * Fires when delete button is pressed
+         * @param {eSalsa.model.Experiment} Experiment record
+         * @param {Number} Row index
+         */
         this.addEvents('deleteExperiment');
 
         this.callParent(arguments);
 
     },
-    onAddClick: function() {
+    onAddClick : function() {
         var rec = Ext.create('eSalsa.model.Experiment');
         this.getStore().insert(0, rec);
         this.plugins[0].startEdit(rec, 0);

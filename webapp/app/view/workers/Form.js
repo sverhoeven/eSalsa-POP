@@ -1,3 +1,7 @@
+/**
+ * Form to edit a worker.
+ * Uses a property grid for configuring additional properties.
+ */
 Ext.define('eSalsa.view.workers.Form', {
     extend: 'Ext.form.Panel',
     alias: 'widget.workersform',
@@ -28,7 +32,7 @@ Ext.define('eSalsa.view.workers.Form', {
         allowBlank: false
     }, {
         fieldLabel: 'Template directory',
-        name: 'template_dir',
+        name : 'template_dir',
         allowBlank: false
     }, {
         fieldLabel: 'Input directory',
@@ -45,7 +49,7 @@ Ext.define('eSalsa.view.workers.Form', {
         nameColumnWidth: 250
     }],
     buttons: [{
-        text: 'Clear',
+        text: 'Clear'
     }, {
         text: 'Save',
         action: 'save-worker'
@@ -53,9 +57,11 @@ Ext.define('eSalsa.view.workers.Form', {
         text: 'Delete',
         action: 'del-worker'
     }],
-    reset: function() {
-        this.getForm().reset();
-    },
+    /**
+     * Shortcut to fetch form element for additional properties.
+     *
+     * @returns {eSalsa.view.workers.AdditionalProperties}
+     */
     getAdditionalProperties: function() {
         return this.getForm().findField('add_props');
     }

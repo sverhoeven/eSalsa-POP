@@ -1,3 +1,6 @@
+/**
+ * List of inputs.
+ */
 Ext.define('eSalsa.view.inputs.List', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.inputslist',

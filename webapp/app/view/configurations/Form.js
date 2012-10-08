@@ -1,42 +1,40 @@
+/**
+ * Form to edit a configuration
+ */
 Ext.define('eSalsa.view.configurations.Form', {
-    extend: 'Ext.form.Panel',
-    alias: 'widget.configurationsform',
-    defaultType: 'textfield',
-    bodyPadding: 5,
-    layout: 'anchor',
-    disabled: true,
-    defaults: {
-        anchor: '100%',
-        labelAlign: 'top'
+    extend : 'Ext.form.Panel',
+    alias : 'widget.configurationsform',
+    defaultType : 'textfield',
+    bodyPadding : 5,
+    layout : 'anchor',
+    disabled : true,
+    defaults : {
+        anchor : '100%',
+        labelAlign : 'top'
     },
-    items: [{
-        fieldLabel: 'ID',
-        name: 'id',
-        allowBlank: false
+    items : [ {
+        fieldLabel : 'ID',
+        name : 'id',
+        allowBlank : false
     }, {
-        fieldLabel: 'Comment',
-        name: 'comment',
-        emptyText: 'Enter comment',
-        xtype: 'textarea'
+        fieldLabel : 'Comment',
+        name : 'comment',
+        emptyText : 'Enter comment',
+        xtype : 'textarea'
     }, {
-        fieldLabel: 'Configuration',
-        xtype: 'textarea', // TODO find editor which highlights code see http://stackoverflow.com/questions/1619167/textarea-that-can-do-syntax-highlighting-on-the-fly
-        name: 'configuration',
-        allowBlank: false
-    }],
-    buttons: [{
-        text: 'Clear',
+        fieldLabel : 'Configuration',
+        xtype : 'textarea', // TODO find editor which highlights code see
+                            // http://stackoverflow.com/questions/1619167/textarea-that-can-do-syntax-highlighting-on-the-fly
+        name : 'configuration',
+        allowBlank : false
+    } ],
+    buttons : [ {
+        text : 'Clear'
     }, {
-        text: 'Save',
-        action: 'save-conf'
+        text : 'Save',
+        action : 'save-conf'
     }, {
-        text: 'Delete',
-        action: 'del-conf'
-    }],
-    reset: function() {
-        this.getForm().reset();
-    },
-    getAdditionalProperties: function() {
-        return this.getForm().findField('add_props');
-    }
+        text : 'Delete',
+        action : 'del-conf'
+    } ]
 });
