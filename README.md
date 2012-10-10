@@ -38,6 +38,6 @@ Out of the box all required ExtJS classes are loaded seperate.
 To concat and compress into one js file first install SenchaCmd then run
 
     cd webapp
-    sencha -s ext-4.1.1a compile -classpath ext-4.1.1a/src,app page -yui -in index.html -out index.build.html
-    gzip -c all-classes.js all-classes.js.gz
+    sencha -s ext-4.1.1a compile -classpath ext-4.1.1a/src,app page -yui -in devel.html -out index.html
+    gzip -c all-classes.js > all-classes.js.gz
 
